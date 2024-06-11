@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artist Library Project Artist View </title>
+</head>
+<body>
+    <h1>Artist List</h1>
+   <table>
+       <tr>
+           <th>ID</th>
+           <th>Name</th>
+           <th>Genre</th>
+       </tr>
+
+       <tr th:each="artist : ${artists}">
+           <td th:text="${artist.id}"> 123
+           <td th:text="${artist.name}"> Joe</td>
+           <td th:text="${artist.genre}"> Smith</td>
+       </tr>
+   </table>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
-package repositories;
+package com.example.artistlibraryservice.repositories;
 
-import domain.Song;
+import com.example.artistlibraryservice.domain.Song;
 import org.springframework.data.repository.CrudRepository;
 
 public interface SongRepository extends CrudRepository<Song, Long> {

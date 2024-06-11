@@ -1,8 +1,9 @@
-package domain;
+package com.example.artistlibraryservice.domain;
 
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -14,14 +15,22 @@ public class Song {
     private Long id;
 
     private String title;
-    private int duration;
+    private Double duration;
 
     public Song() {
 
     }
-    public Song(String title, int duration) {
+    public Song(String title, Double duration) {
         this.title = title;
         this.duration = duration;
+    }
+
+    public Set<Artist> getArtists() {
+        return artists;
+    }
+
+    public void setArtists(Set<Artist> artists) {
+        this.artists = artists;
     }
 
     @ManyToMany
@@ -58,11 +67,25 @@ public class Song {
         this.title = title;
     }
 
-    public int getDuration() {
+    public Double getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Double duration) {
         this.duration = duration;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Song song = (Song) o;
+        return id.equals(song.id) && Objects.equals(title, song.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

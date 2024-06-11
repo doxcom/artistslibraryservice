@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artist Lib Project Songs View</title>
+</head>
+<body>
+  <h1>Song List</h1>
+  <table>
+      <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Duration</th>
+          <th>Artist</th>
+      </tr>
+
+      <tr th:each="song : ${songs}">
+         <td th:text="${song.id}"   > 123</td>
+          <td th:text="${song.title}"   > Spring in action</td>
+          <td th:text="${song.duration}"   > Wroxz</td>
+      </tr>
+  </table>
+
+</body>
+</html>

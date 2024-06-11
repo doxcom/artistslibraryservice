@@ -1,4 +1,4 @@
-package domain;
+package com.example.artistlibraryservice.domain;
 
 
 import jakarta.persistence.*;
@@ -16,6 +16,14 @@ public class Artist {
 
     private String name;
     private String genre; //genero musical xD
+
+    public Set<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(Set<Song> songs) {
+        this.songs = songs;
+    }
 
     @ManyToMany(mappedBy = "artists")
     private Set<Song> songs = new HashSet<>();
@@ -73,8 +81,6 @@ public class Artist {
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + Objects.hashCode(name);
-        return result;
+       return Objects.hashCode(id);
     }
 }
